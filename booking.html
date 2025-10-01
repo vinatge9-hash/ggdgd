@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Peak Performance Gym | Online Booking</title>
+  <script src='https://cdn.tailwindcss.com'></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { primary: '#10B981', secondary: '#3B82F6', accent: '#F59E0B' } } } }
+  </script>
+  <style>
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fadeIn { animation: fadeIn 0.6s ease-out forwards; }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class='font-sans antialiased'>
+  <nav class='fixed w-full bg-white shadow-md z-50'>
+    <div class='container mx-auto px-6 py-4'>
+      <div class='flex items-center justify-between'>
+        <div class='text-2xl font-bold text-primary'>Peak Performance Gym</div>
+        <div class='hidden md:flex space-x-8'>
+          <a href='index.html' class='hover:text-primary transition'>Home</a>
+          <a href='about.html' class='hover:text-primary transition'>About</a>
+          <a href='classes.html' class='hover:text-primary transition'>Classes</a>
+          <a href='trainers.html' class='hover:text-primary transition'>Trainers</a>
+          <a href='pricing.html' class='hover:text-primary transition'>Pricing</a>
+          <a href='booking.html' class='hover:text-primary transition'>Book</a>
+          <a href='schedule.html' class='hover:text-primary transition'>Schedule</a>
+          <a href='contact.html' class='hover:text-primary transition'>Contact</a>
+        </div>
+        <button id='mobile-menu-btn' class='md:hidden' aria-label='Open Menu'>
+          <svg class='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+            <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 6h16M4 12h16M4 18h16'/>
+          </svg>
+        </button>
+      </div>
+      <div id='mobile-menu' class='hidden md:hidden pt-4 pb-2'>
+        <a href='index.html' class='block py-2 hover:text-primary'>Home</a>
+        <a href='about.html' class='block py-2 hover:text-primary'>About</a>
+        <a href='classes.html' class='block py-2 hover:text-primary'>Classes</a>
+        <a href='trainers.html' class='block py-2 hover:text-primary'>Trainers</a>
+        <a href='pricing.html' class='block py-2 hover:text-primary'>Pricing</a>
+        <a href='booking.html' class='block py-2 hover:text-primary'>Book</a>
+        <a href='schedule.html' class='block py-2 hover:text-primary'>Schedule</a>
+        <a href='contact.html' class='block py-2 hover:text-primary'>Contact</a>
+      </div>
+    </div>
+  </nav>
+  <header class='pt-28 pb-12 bg-gradient-to-r from-primary to-secondary'>
+    <div class='container mx-auto px-6 text-center text-white'>
+      <h1 class='text-4xl md:text-5xl font-extrabold mb-4'>Online Booking</h1>
+      <p class='text-lg md:text-xl'>Reserve your class slot in just a few clicks.</p>
+    </div>
+  </header>
+  <main class='container mx-auto px-6 py-12'>
+    <section id='booking-form' class='bg-white rounded-xl p-6 shadow'>
+      <h2 class='text-2xl font-bold mb-4'>Book a Class</h2>
+      <form id='class-booking' class='grid md:grid-cols-2 gap-4'>
+        <div>
+          <label class='block text-sm font-semibold mb-1'>Class Type</label>
+          <select class='w-full px-3 py-2 border border-gray-300 rounded' required>
+            <option>HIIT Blast</option>
+            <option>Strength Builder</option>
+            <option>Yoga & Mobility</option>
+          </select>
+        </div>
+        <div>
+          <label class='block text-sm font-semibold mb-1'>Date</label>
+          <input type='date' class='w-full px-3 py-2 border border-gray-300 rounded' required>
+        </div>
+        <div>
+          <label class='block text-sm font-semibold mb-1'>Time</label>
+          <select class='w-full px-3 py-2 border border-gray-300 rounded' required>
+            <option>06:00</option>
+            <option>12:00</option>
+            <option>18:00</option>
+          </select>
+        </div>
+        <div>
+          <label class='block text-sm font-semibold mb-1'>Your Name</label>
+          <input type='text' class='w-full px-3 py-2 border border-gray-300 rounded' required>
+        </div>
+        <div>
+          <label class='block text-sm font-semibold mb-1'>Email</label>
+          <input type='email' class='w-full px-3 py-2 border border-gray-300 rounded' required>
+        </div>
+        <div class='md:col-span-2'>
+          <button type='submit' class='bg-primary text-white px-6 py-3 rounded'>Confirm Booking</button>
+        </div>
+      </form>
+      <div id='booking-confirm' class='hidden mt-3 p-3 rounded bg-green-100 text-green-800'></div>
+    </section>
+    <section class='mt-8'>
+      <h3 class='text-xl font-semibold mb-2'>Booking Tips</h3>
+      <p class='text-gray-700'>Arrive 5 minutes early. Bring water and a towel. If it’s your first visit, our staff will greet you and show you where to go.</p>
+    </section>
+  </main>
+  <footer class='bg-gray-900 text-white py-8'>
+    <div class='container mx-auto px-6 text-center'>
+      <p class='text-gray-400'>© 2025 Peak Performance Gym. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+      const m = document.getElementById('mobile-menu');
+      if (m) m.classList.toggle('hidden');
+    });
+
+    document.getElementById('class-booking')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const conf = document.getElementById('booking-confirm');
+      conf.classList.remove('hidden');
+      conf.textContent = 'Booking confirmed! We sent a confirmation to your email.';
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
