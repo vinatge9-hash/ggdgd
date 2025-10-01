@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Peak Performance Gym | Schedule</title>
+  <script src='https://cdn.tailwindcss.com'></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { primary: '#10B981', secondary: '#3B82F6' } } } }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class='font-sans antialiased'>
+  <nav class='fixed w-full bg-white shadow-md z-50'>
+    <div class='container mx-auto px-6 py-4'>
+      <div class='flex items-center justify-between'>
+        <div class='text-2xl font-bold text-primary'>Peak Performance Gym</div>
+        <div class='hidden md:flex space-x-8'>
+          <a href='index.html' class='hover:text-primary transition'>Home</a>
+          <a href='about.html' class='hover:text-primary transition'>About</a>
+          <a href='classes.html' class='hover:text-primary transition'>Classes</a>
+          <a href='trainers.html' class='hover:text-primary transition'>Trainers</a>
+          <a href='pricing.html' class='hover:text-primary transition'>Pricing</a>
+          <a href='booking.html' class='hover:text-primary transition'>Book</a>
+          <a href='schedule.html' class='hover:text-primary transition'>Schedule</a>
+          <a href='contact.html' class='hover:text-primary transition'>Contact</a>
+        </div>
+        <button id='mobile-menu-btn' class='md:hidden' aria-label='Open Menu'>
+          <svg class='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+            <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 6h16M4 12h16M4 18h16'/>
+          </svg>
+        </button>
+      </div>
+      <div id='mobile-menu' class='hidden md:hidden pt-4 pb-2'>
+        <a href='index.html' class='block py-2 hover:text-primary'>Home</a>
+        <a href='about.html' class='block py-2 hover:text-primary'>About</a>
+        <a href='classes.html' class='block py-2 hover:text-primary'>Classes</a>
+        <a href='trainers.html' class='block py-2 hover:text-primary'>Trainers</a>
+        <a href='pricing.html' class='block py-2 hover:text-primary'>Pricing</a>
+        <a href='booking.html' class='block py-2 hover:text-primary'>Book</a>
+        <a href='schedule.html' class='block py-2 hover:text-primary'>Schedule</a>
+        <a href='contact.html' class='block py-2 hover:text-primary'>Contact</a>
+      </div>
+    </div>
+  </nav>
+  <header class='pt-28 pb-8 bg-gradient-to-r from-primary to-secondary'>
+    <div class='container mx-auto px-6 text-center text-white'>
+      <h1 class='text-4xl md:text-5xl font-extrabold'>Class Timetable</h1>
+      <p class='text-lg md:text-xl'>Stay on track with our weekly schedule organized by intensity and goal.</p>
+    </div>
+  </header>
+  <main class='container mx-auto px-6 py-12'>
+    <section id='timetable'>
+      <div class='overflow-x-auto'>
+        <table class='min-w-full bg-white rounded-xl shadow-md'>
+          <thead>
+            <tr class='bg-gray-100'>
+              <th class='px-4 py-2'>Time</th>
+              <th class='px-4 py-2'>Mon</th>
+              <th class='px-4 py-2'>Tue</th>
+              <th class='px-4 py-2'>Wed</th>
+              <th class='px-4 py-2'>Thu</th>
+              <th class='px-4 py-2'>Fri</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class='px-4 py-2'>06:00</td>
+              <td class='px-4 py-2'>HIIT</td>
+              <td class='px-4 py-2'>Strength</td>
+              <td class='px-4 py-2'>Mobility</td>
+              <td class='px-4 py-2'>Yoga</td>
+              <td class='px-4 py-2'>Spin</td>
+            </tr>
+            <tr>
+              <td class='px-4 py-2'>12:00</td>
+              <td class='px-4 py-2'>Cardio</td>
+              <td class='px-4 py-2'>Strength</td>
+              <td class='px-4 py-2'>Mobility</td>
+              <td class='px-4 py-2'>Yoga</td>
+              <td class='px-4 py-2'>Spin</td>
+            </tr>
+            <tr>
+              <td class='px-4 py-2'>18:00</td>
+              <td class='px-4 py-2'>Yoga</td>
+              <td class='px-4 py-2'>HIIT</td>
+              <td class='px-4 py-2'>Strength</td>
+              <td class='px-4 py-2'>Mobility</td>
+              <td class='px-4 py-2'>Group Run</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <footer class='bg-gray-900 text-white py-6'>
+    <div class='container mx-auto px-6 text-center'>
+      <p class='text-gray-400'>© 2025 Peak Performance Gym. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+      const m = document.getElementById('mobile-menu');
+      if (m) m.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
